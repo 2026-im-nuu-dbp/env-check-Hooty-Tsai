@@ -10,14 +10,15 @@ body {
     color: rgb(11, 3, 1);
     padding: 15px 20px;
     display: flex;                 /* arrange children in a row */
-    justify-content: space-between;/* spread items across the header */
+    justify-content: center;       /* center all header items */
     align-items: center;           /* vertically center them */
     flex-wrap: wrap;               /* allow wrapping on narrow screens */
+    gap: 20px;                     /* space between items */
 }
 
 /* title block inside header */
 .header .titles {
-    text-align: left;
+    text-align: center;
 }
 .header .titles h1,
 .header .titles h2 {
@@ -26,16 +27,20 @@ body {
 }
 .header img {
     max-height: 80px;
-    margin-right: 1250px;
     border-radius: 8px;
 }
 
 /* navigation styling */
+.header nav {
+    flex: 1 1 100%;       /* occupy full width on its own row */
+    text-align: center;   /* center links within the row */
+    margin-top: 10px;
+}
 .header nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: inline-flex;
     gap: 15px;
 }
 .header nav a {
