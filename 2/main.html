@@ -7,34 +7,82 @@
     <title>網頁作業</title>
 </head>
 <body>
-    <header>
-        <h1>網頁作業</h1>
-        <h2>我的作品集</h2>
+    <div class="header">
+        <div class="titles">
+            <h1>網頁作業</h1>
+            <h2>我的作品集</h2>
+        </div>
+        <img src="./deadpool.png" alt="Lego Deadpool">
+        
         <nav>
+        <br>
             <ul>
+            
                 <li><a href="main.html">首頁</a></li>
-                <li><a href="about.html">關於我</a></li>
-                <li><a href="projects.html">作品集</a></li>
-                <li><a href="contact.html">聯絡我</a></li>
+                <li><a href="aboutme.html" target="_blank">關於我</a></li>
+                <li><a href="projects.html" target="_blank">作品集</a></li>
+                <li><a href="contact.html" target="_blank">聯絡我</a></li>
             </ul>
         </nav>
-    </header>
+    </div>
+
+    <section class="hero">
+        <h1>歡迎來到我的作品集</h1>
+        <p>這裡展示了我過去的專案和作品，請隨意瀏覽！</p>
+        <a class="cta-button" href="#portfolio">我的行動宣言</a>
+    </section>
+
     <main>
-        <section>
-            <h3>歡迎來到我的作品集</h3>
-            <p>這裡展示了我過去的專案和作品，請隨意瀏覽！</p>
+        <section class="about">
+            <img src="./man.png">
+            <div class="about-text">
+                <h1>關於我</h1>
+                <h3>我是蔡呼踢，一名熱愛插圖的設計師。<br>我喜歡收集各種有趣的圖像和設計元素，尤其是有關貓咪的，我也喜歡在閒暇之餘觀察家裡貓咪的各種可愛樣態。</h3>
+            </div>
         </section>
-        <section class="about">about me</section>
-        <section class="portfolio">
-            <h3>作品</h3>
-            <ul>
-                <li><a href="project1.html">a</a></li>
-                <li><a href="project2.html">b</a></li>
-                <li><a href="project3.html">c</a></li>
-            </ul>
+
+        <section class="portfolio" id="portfolio">
+            <h2>作品集</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>專案一</h3>
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/20210505062846061949.jpg?crop=1xw:1xh;center,top" alt="沒有名字的貓咪" 
+                     width="200" style="display: block; margin: 0 auto;">  
+                    <!-- 讓圖片向文字一樣，在卡片內置中 -->
+                    
+                    <p  style="text-align: center;">
+                    小時候，是隻「小貓」，長大了，就被叫做「貓」而已。沒有名字的貓在街上尋找，牠能找到喜歡的名字嗎？
+                    </p> 
+                    <!-- 讓文字水平致中 -->
+                    
+                </div>
+                <div class="card">
+                    <h3>專案二</h3>
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/636749298543801250.jpg?crop=1xw:1xh;center,top" alt="沒有名字的貓咪" 
+                     width="150" style="display: block; margin: 0 auto;">  
+                    <!-- 讓圖片向文字一樣，在卡片內置中 -->
+                    
+                    <p style="text-align: center;">《鐵三哪》的故事都是作者追憶生活，每一頁的第一句話幾乎都以「鐵三哪」起首，聲聲呼喚，如此溫柔。</p> 
+                    <!-- 讓文字水平致中 -->
+                </div>
+                <div class="card">
+                    <h3>專案三</h3>
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/20210210035424479627.jpg?crop=1xw:1xh;center,top" alt="沒有名字的貓咪" 
+                     width="300" style="display: block; margin: 0 auto;">  
+                    <!-- 讓圖片向文字一樣，在卡片內置中 -->
+                    
+                    <p style="text-align: center;">小玉遇到了一隻貓，她幫牠取名為「喵喵」。但是小玉想幫喵喵洗澡的時候，喵喵會大聲回她：「不要！」。</p> 
+                    <!-- 讓文字水平致中 -->
+                </div>
+            </div>
         </section>
-        <footer>
+    </main>
+
+        <div class="footer">
             <p>&copy; 2026 我的作品集. All rights reserved.</p>
-        </footer>
+            <div class="social">
+                <a href="https://www.facebook.com/">Facebook</a> | <a href="https://www.instagram.com/">Instagram</a> | <a href="https://github.com/">GitHub</a>
+            </div>
+        </div>
 </body>
 </html>
