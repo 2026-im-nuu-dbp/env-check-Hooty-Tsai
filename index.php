@@ -36,11 +36,17 @@ try {
                 <li><?php echo $user['name']; ?> (<?php echo $user['email']; ?>)</li>
             <?php endforeach; ?>
         </ul>
-        
-        <h1>
-        <b><u>HOOTY</u></b>
-            </h1>     
+    </div>
+    <h3>W3School 連結</h3>
+    <div class="card">
+        <h2>W3School 教學 基礎語法</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com" target="_blank">W3Schools</a></li>
+            <li><a href="https://www.w3schools.com/html" target="_blank">HTML 教學</a></li>
+            <li><a href="https://www.w3schools.com/css" target="_blank">CSS 教學</a></li>
+            <li><a href="https://www.w3schools.com/php" target="_blank">PHP 教學</a></li>
+            <li><a href="https://www.w3schools.com/js" target="_blank">JavaScript 教學</a></li>
+        </ul>
     </div>
 </body>
 </html>
-
