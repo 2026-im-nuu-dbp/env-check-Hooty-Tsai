@@ -1,0 +1,3 @@
+Hello from PHP file handling
+Timestamp: 2026-03-18 02:21:36
+Path: C:\laragon\www\env-check-Hooty-Tsai\0318\file_demo\notes.txt
