@@ -1,7 +1,7 @@
 <?php
 session_start();
 // 模擬從表單收到的帳密驗證
-$user = "admin";
+$user = "hooty";
 $pass = "1234";
 if ($_POST['username'] === $user && $_POST['password'] === $pass) {
     // 驗證成功，標記為已登入
