@@ -1,6 +1,6 @@
 <?php
-// 1. 設定 Cookie：名稱為 "username"，值為 "Alex"，86400 秒 (1天) 後過期
-setcookie("username", "Alex", time() + 86400, "/", "", false, true);
+// 1. 設定 Cookie：名稱為 "username"，值為 "Hooty"，86400 秒 (1天) 後過期
+setcookie("username", "Hooty", time() + 86400, "/", "", false, true);
 ?>
 <html>
 <body>
