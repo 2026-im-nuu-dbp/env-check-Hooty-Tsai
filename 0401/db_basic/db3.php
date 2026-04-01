@@ -4,12 +4,14 @@ require 'db.php';
 $stmt = $pdo->prepare("DELETE FROM users WHERE name = :name");
 
 // 2. 執行並綁定參數
-$stmt->execute(['name' => 'John']);
+$name = $_POST['name']; // 從表單接收名稱
+    
 
-// 3. 準備 SQL 語法 (問號占位符)
-$stmt = $pdo->prepare("DELETE FROM users WHERE name = ?");
-// 4. 執行並綁定參數 依照順序
-$stmt->execute(['Jane']);   
+$result = $stmt->execute(['name' => $name]);
+// // 3. 準備 SQL 語法 (問號占位符)
+// $stmt = $pdo->prepare("DELETE FROM users WHERE name = ?");
+// // 4. 執行並綁定參數 依照順序
+// $stmt->execute(['Jane']);   
 
 
 // 5. 顯示所有使用者

@@ -1,5 +1,7 @@
 <?php
 require 'db.php';
+//require_once 'db.php'; // 只會載入一次，避免重複定義
+
 // 1. 準備 SQL 語法
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 
@@ -15,7 +17,8 @@ print_r($user);
 $sql = "SELECT * FROM users";
 $users = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 foreach ($users as $user) {
-    echo "<p>{$user['name']} ({$user['email']})</p>";
+    echo "<p>{$user['id']} - {$user['name']} ({$user['email']})</p>";
+    
 }
 
 
