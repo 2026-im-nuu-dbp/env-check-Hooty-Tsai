@@ -1,35 +1,43 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['my_image'])) {
-    $file = $_FILES['my_image'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // 檢查是否有檔案上傳 (支援多個輸入欄位)
+    $file = null;
+    if (isset($_FILES['my_image']) && $_FILES['my_image']['size'] > 0) {
+        $file = $_FILES['my_image'];
+    } elseif (isset($_FILES['my_file']) && $_FILES['my_file']['size'] > 0) {
+        $file = $_FILES['my_file'];  // 優先處理圖片，若無則處理文件
+    }
 
-    // 1. 取得檔案資訊
-    $fileName = $file['name'];     // 原始檔名
-    $fileTmpName = $file['tmp_name']; // 暫存路徑
-    $fileSize = $file['size'];     // 檔案大小
-    $fileError = $file['error'];   // 錯誤代碼
+    if ($file) {
+        // 1. 取得檔案資訊
+        $fileName = $file['name'];     // 原始檔名
+        $fileTmpName = $file['tmp_name']; // 暫存路徑
+        $fileSize = $file['size'];     // 檔案大小
+        $fileError = $file['error'];   // 錯誤代碼
 
-    // 2. 檢查副檔名 (安全性檢查)
-    $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    $allowed = ['jpg', 'jpeg', 'png', 'gif'];
+        // 2. 檢查副檔名 (安全性檢查)
+        $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx']; // 允許的檔案類型
 
-    if (in_array($fileExt, $allowed)) {
-        if ($fileError === 0) {
-            if ($fileSize < 50000000) { // 限制 5MB
-                // 3. 產生唯一檔名，避免重複覆蓋
-                $newFileName = uniqid('', true) . "." . $fileExt;
-                $fileDestination = 'uploads/' . $newFileName;
+        if (in_array($fileExt, $allowed)) {
+            if ($fileError === 0) {
+                if ($fileSize < 50000000) { // 限制 50MB
+                    // 3. 產生唯一檔名，避免重複覆蓋
+                    $newFileName = uniqid('', true) . "." . $fileExt;
+                    $fileDestination = 'uploads/' . $newFileName;
 
-                // 建立資料夾 (如果不存在)
-                if (!is_dir('uploads')) { mkdir('uploads'); }
+                    // 建立資料夾 (如果不存在)
+                    if (!is_dir('uploads')) { mkdir('uploads'); }
 
-                // 4. 移動檔案
-                if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                    echo "✅ 上傳成功！檔案位置: " . $fileDestination;
-                } else {
-                    echo "❌ 移動檔案時出錯。";
-                }
-            } else { echo "❌ 檔案太大了！"; }
-        } else { echo "❌ 上傳過程中發生錯誤。"; }
-    } else { echo "❌ 不支援此檔案類型。"; }
+                    // 4. 移動檔案
+                    if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                        echo "✅ 上傳成功！檔案位置: " . $fileDestination;
+                    } else {
+                        echo "❌ 移動檔案時出錯。";
+                    }
+                } else { echo "❌ 檔案太大了！"; }
+            } else { echo "❌ 上傳過程中發生錯誤。"; }
+        } else { echo "❌ 不支援此檔案類型。"; }
+    }
 }
 ?>
